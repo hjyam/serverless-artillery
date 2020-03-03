@@ -1,0 +1,28 @@
+# Thank you for trying serverless-artillery!
+# This default script is intended to get you started quickly.
+# There is a lot more that Artillery can do.
+# You can find great documentation of the possibilities at:
+# https://artillery.io/docs/
+config:
+  # this hostname will be used as a prefix for each URI in the flow unless a complete URI is specified
+  target: "https://gateway.ridebeam.com/dev-api"
+  phases:
+    - duration: 10
+      arrivalRate: 1000
+  plugins:
+    cloudwatch:
+      namespace: "serverless-artillery-scooter-message-loadtest"
+    influxdb:
+      testName: "scooter-load-test"
+      influx:
+        host: "localhost"
+        database: "artillery_metrics"
+scenarios:
+  - name: "Send Scooter messages"
+    flow:
+      - post:
+          url: "/scooter-messages"
+          headers:
+            authorization: "Basic {{ INBOUND_SCOOTER_MESSAGES_API_KEY }}"
+          json:
+            payload: "HBCR,NB,867584031387405,L1,0,0,12345678,3"

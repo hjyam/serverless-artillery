@@ -1,0 +1,7 @@
+.idea
+.tool-versions
+node_modules/
+.env
+result
+result.html
+.DS_Store
