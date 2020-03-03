@@ -59,7 +59,7 @@
     "LoadGeneratorLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/serverless-artillery-LMTsGsi-I-dev-loadGenerator"
+        "LogGroupName": "/aws/lambda/serverless-artillery-LMTsGsi-I-stress-test-loadGenerator"
       }
     },
     "IamRoleLambdaExecution": {
@@ -87,7 +87,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "serverless-artillery-LMTsGsi-I-dev",
+                  "serverless-artillery-LMTsGsi-I-stress-test",
                   "lambda"
                 ]
               ]
@@ -103,7 +103,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-artillery-LMTsGsi-I-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-artillery-LMTsGsi-I-stress-test*:*"
                     }
                   ]
                 },
@@ -114,7 +114,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-artillery-LMTsGsi-I-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-artillery-LMTsGsi-I-stress-test*:*:*"
                     }
                   ]
                 },
@@ -144,7 +144,7 @@
                           "Ref": "AWS::AccountId"
                         },
                         "function",
-                        "serverless-artillery-LMTsGsi-I-dev-loadGenerator*"
+                        "serverless-artillery-LMTsGsi-I-stress-test-loadGenerator*"
                       ]
                     ]
                   }
@@ -167,7 +167,7 @@
           "Fn::Join": [
             "-",
             [
-              "serverless-artillery-LMTsGsi-I-dev",
+              "serverless-artillery-LMTsGsi-I-stress-test",
               {
                 "Ref": "AWS::Region"
               },
@@ -184,9 +184,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-artillery-LMTsGsi-I/dev/1583145044239-2020-03-02T10:30:44.239Z/serverless-artillery-LMTsGsi-I.zip"
+          "S3Key": "serverless/serverless-artillery-LMTsGsi-I/stress-test/1583200117837-2020-03-03T01:48:37.837Z/serverless-artillery-LMTsGsi-I.zip"
         },
-        "FunctionName": "serverless-artillery-LMTsGsi-I-dev-loadGenerator",
+        "FunctionName": "serverless-artillery-LMTsGsi-I-stress-test-loadGenerator",
         "Handler": "handler.handler",
         "MemorySize": 1024,
         "Role": {
@@ -216,14 +216,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "LoadGeneratorLambdaVersionRmsqfXWQfJ5awVBkOs1Eu285bj5VEznYajyRG4Tx8NY": {
+    "LoadGeneratorLambdaVersionuERW8lepiBp5Wib4Myo1ohdCPn02diO6127Cx1aAA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LoadGeneratorLambdaFunction"
         },
-        "CodeSha256": "0MIb5IuLCApACWa4bXQAsj7EEHJTAKbX+otfVFRz43w="
+        "CodeSha256": "QxinryfMoA03GGWGppdctalNYvA4XxRdwvUM9Hap3Qc="
       }
     },
     "LoadGeneratorEventsRuleSchedule1": {
@@ -231,7 +231,7 @@
       "Properties": {
         "ScheduleExpression": "rate(1 minute)",
         "State": "DISABLED",
-        "Name": "serverless-artillery-LMTsGsi-I-dev-monitoring",
+        "Name": "serverless-artillery-LMTsGsi-I-stress-test-monitoring",
         "Description": "The scheduled event for running the function in monitoring mode",
         "Targets": [
           {
@@ -282,7 +282,7 @@
     "LoadGeneratorLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LoadGeneratorLambdaVersionRmsqfXWQfJ5awVBkOs1Eu285bj5VEznYajyRG4Tx8NY"
+        "Ref": "LoadGeneratorLambdaVersionuERW8lepiBp5Wib4Myo1ohdCPn02diO6127Cx1aAA"
       }
     }
   }

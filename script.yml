@@ -9,6 +9,12 @@ config:
   phases:
     - duration: 10
       arrivalRate: 1000
+      rampTo: 1500
+      name: "warm up"
+    - duration: 60
+      arrivalRate: 2000
+      name: "max load"
+    - pause: 30
   plugins:
     cloudwatch:
       namespace: "serverless-artillery-scooter-message-loadtest"
